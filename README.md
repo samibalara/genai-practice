@@ -45,3 +45,15 @@ I received three peer reviews and an instructor score breakdown. Two reviewers c
 | The "Not for me" button could help the algorithm learn. | Deferred | "Not for me" will remove a church from the current results, but learning across sessions would need user accounts and stored history, which is beyond this project's scope and timeline. |
 
 I prioritized the issues that broke the core task first: matching that ignored user input, the unreachable app, and the missing code. A church-matching tool only works if users trust that their non-negotiables, like denomination, are respected. Next come fixes for clarity and trust (identical scores, broken images, unclear AI documentation). I adapted the shorter-form idea so the app is faster for new users without losing detail for people who want it, and deferred cross-session learning because it does not fit this project's scope or time.
+
+## Evaluate the Revised Prototype
+
+Five test cases for the revised prototype. Before each test I wrote what a successful response should look like. The Actual result, Pass/partial/fail, and Next step columns will be filled in after I run each case on the revised app.
+
+| Case | Input or action | Expected result / success criterion | Actual result | Pass, partial, or fail | Implication or next step |
+| --- | --- | --- | --- | --- | --- |
+| Typical 1 | A newcomer who is open to different denominations: no Must Haves, Nice to Have contemporary worship, within 10 miles. | A ranked list of nearby churches across denominations, with different match scores and a "Why this matched" line that mentions worship style and distance. | To be recorded | To be recorded | To be recorded |
+| Typical 2 | A user set on a denomination: Baptist as a Must Have, traditional hymns as Nice to Have, English-language service. | Only Baptist churches appear, with hymn-style churches ranked higher. No Catholic or Presbyterian churches. | To be recorded | To be recorded | To be recorded |
+| Challenge | Contradictory Must Haves: both Catholic and Baptist marked as Must Have. | The app does not quietly pick one. It explains that no church can meet both and asks the user to relax one Must Have. | To be recorded | To be recorded | To be recorded |
+| Invalid or empty | Submit the questionnaire with no answers. | No crash and no made-up match scores. The app asks the user to answer at least the core questions, or clearly labels results as a general list. | To be recorded | To be recorded | To be recorded |
+| Risk | Must Have a Spanish-language service, for a church whose listing has no language information. | The app does not claim the church offers Spanish services. Missing details show as "Not listed," and the user can remove the church with "Not for me" or change preferences. A misleading match here could send someone to a service they cannot follow. | To be recorded | To be recorded | To be recorded |
