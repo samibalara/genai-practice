@@ -61,3 +61,19 @@ Five test cases for the revised prototype. Before each test I wrote what a succe
 ### What Does the Evidence Tell Me?
 
 These results are predictions until I run each case on the revised app, and five tests are early evidence, not proof that Gatherwell is ready for real users. Based on the revisions, the part I expect to work reasonably well now is the core promise: treating Must Haves as hard filters should finally make results change with the user's answers, so a Baptist-only search returns only Baptist churches instead of the same generic list. What remains unreliable is how the app handles edge cases and missing information. Conflicting Must Haves may produce a dead end without explaining why, an empty questionnaire may still show match percentages that mean nothing, and the AI may fill gaps in church data with guesses, like assuming a Spanish-language service, which is the riskiest failure because it could send someone to a church that does not fit them. Images, the shorter form, and the "Why this matched" explanations are also still untested. If the filtering tests pass, the results would support part of the value I claim: a newcomer can trust that their non-negotiables are respected. They would not yet support the claim that the AI finds a good cultural or community fit, since none of these tests measure match quality. Next, I would run these five cases for real, fix the risk case so the app only shows details that are in the church data, add a clearer message for conflicting Must Haves, and ask a few people who are actually church hunting to try it and tell me whether their top matches felt right.
+
+## Address One Concrete Risk
+
+**Risk chosen:** the AI presenting guessed church details as facts.
+
+**Status:** In progress. This safeguard is being built in the revised prototype and is not yet confirmed working. The Risk test case above will check it.
+
+**What I am changing:**
+
+- The AI may only describe a church using details that are in the church data. It cannot guess things like service language, worship style, or beliefs from a church's name or neighborhood.
+- Any detail that is missing from the data shows as "Not listed" on the result card.
+- If a Must Have can't be confirmed from the data (for example, a Spanish-language service when no language is listed), it counts as not met. The church is not shown as a match.
+- Each result card says "Confirm details with the church before visiting," next to the details themselves, not as a footer disclaimer.
+- Users can reject an unsuitable result with "Not for me" and change their preferences without restarting the questionnaire.
+
+The people most affected are newcomers who rely on the app because they don't know the area yet, especially users who need a service in a specific language or who care deeply about a church's beliefs. If the AI guessed a detail and showed it as fact, someone could drive to a service they can't understand, or join a community whose teachings don't match their own, and they would have no reason to doubt the high match score. This connects to the course theme of over-reliance on AI: a confident percentage and a polished card encourage users to trust the output without checking it. It also connects to fairness, because the guesses would most likely be wrong for smaller, immigrant, or less-documented churches whose listings have less information, making them look like worse matches or misrepresenting them. My change keeps the AI to the facts it actually has, makes missing information visible, and keeps the user in control of rejecting results. The remaining risk is that the church data itself can be outdated or incomplete. "Not listed" may also hide good churches that simply have sparse listings, and users may still treat the match score as a recommendation rather than a starting point.
