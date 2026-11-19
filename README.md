@@ -77,3 +77,38 @@ These results are predictions until I run each case on the revised app, and five
 - Users can reject an unsuitable result with "Not for me" and change their preferences without restarting the questionnaire.
 
 The people most affected are newcomers who rely on the app because they don't know the area yet, especially users who need a service in a specific language or who care deeply about a church's beliefs. If the AI guessed a detail and showed it as fact, someone could drive to a service they can't understand, or join a community whose teachings don't match their own, and they would have no reason to doubt the high match score. This connects to the course theme of over-reliance on AI: a confident percentage and a polished card encourage users to trust the output without checking it. It also connects to fairness, because the guesses would most likely be wrong for smaller, immigrant, or less-documented churches whose listings have less information, making them look like worse matches or misrepresenting them. My change keeps the AI to the facts it actually has, makes missing information visible, and keeps the user in control of rejecting results. The remaining risk is that the church data itself can be outdated or incomplete. "Not listed" may also hide good churches that simply have sparse listings, and users may still treat the match score as a recommendation rather than a starting point.
+
+## AI-Use Disclosure
+
+**Tools used**
+
+- **Claude (Anthropic):** for planning revisions, turning peer feedback into fix lists, drafting prompts for Replit, and drafting and editing sections of this README. Claude also made the README edits in this repo through the Claude in Chrome extension, at my request.
+- **Replit Agent:** to write and change the app code.
+- **AI model inside the product:** [name the model/API the app calls for matching].
+
+**Development assistance**
+
+AI helped me turn scattered peer-review comments into a prioritized list of fixes, write step-by-step prompts for Replit Agent, plan test cases, and draft the feedback, evaluation, and risk sections of this README. Replit Agent wrote and edited the code for matching, filtering, the questionnaire, and tests. I decided which feedback to act on, adapt, or defer, chose the risk to address, and reviewed everything before committing it.
+
+**Representative prompts**
+
+1. *To Claude:* "Write me a prompt to feed into Replit that would make it fix these things," with my peer feedback pasted in. **Produced:** one long Replit prompt covering every issue. **What I changed:** I asked for it to be split into six smaller prompts so Replit Agent handles one fix at a time and I can check each change before moving on.
+2. *To Replit Agent:* "Treat every 'Must Have' answer as a HARD FILTER that runs before any ranking. Example: if Baptist is a Must Have, no Catholic, Presbyterian, or other non-Baptist churches may appear." **Produced:** [describe what Replit changed]. **What I changed:** [describe any fixes or follow-up prompts].
+3. *To Claude:* "Can you write some expected or hypothetical values in the tables?" **Produced:** predicted results for my five test cases. **What I changed:** I kept these clearly labeled "Predicted, not yet tested" instead of presenting them as real results, and I will replace them after running each case.
+
+**Human judgment**
+
+- An early AI draft of my peer-feedback table marked every fix as "Acted on" and described the changes as finished, even though the app code was not yet in this repo. I revised it to show which fixes were still in progress, so the README only claims what is actually in the app.
+- I rejected the single long Replit prompt in favor of smaller step-by-step prompts, because one large change made it hard to tell what Replit had actually modified.
+- I deferred the suggestion that "Not for me" should train the algorithm over time, because it would require user accounts and stored history that are beyond this project's scope.
+
+**Verification**
+
+I compared each AI-drafted section against the actual peer feedback and my original test results, previewed every README change on GitHub before committing, and checked that no classmate names or API keys appear in the repo. **Still needs checking:** running the five test cases on the revised app and replacing the predicted results with real ones, confirming each Replit change works as described, and confirming the published link opens for reviewers.
+
+**AI inside the product**
+
+- **Task:** match a user with local churches based on their questionnaire answers.
+- **Inputs:** the user's answers (denomination, worship style, distance, language, service time, plus optional extra questions) marked as Must Have, Nice to Have, or Doesn't Matter, along with the church data.
+- **Outputs:** a ranked list of churches with match percentages and a "Why this matched" explanation.
+- **Current status:** in the first prototype, the AI matching ran through an API, but it returned the same results regardless of user input. In the revision, Must Have answers are handled by rule-based filtering before the AI ranks the remaining churches. See "AI: Working vs. Simulated" for which parts are live AI and which are rule-based or sample data.
