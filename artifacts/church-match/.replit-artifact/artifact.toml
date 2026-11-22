@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Gatherwell Church Finder"
+description = "A welcoming church discovery prototype for individuals and couples. Users share location and preferences, explore explainable fictional church matches, view profiles, save options, and compare churches."
+version = "1.0.0"
+id = "artifacts/church-match"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 18083
+
+[services.development]
+run = "pnpm --filter @workspace/church-match run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/church-match", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/church-match/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "18083"
+BASE_PATH = "/"
