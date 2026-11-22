@@ -6,6 +6,8 @@
 
 [Open link. Choose "Find My Church". Fill out the questionnare. Choose a church you're interested in. Click save. ]
 
+https://church-match-prototype.replit.app 
+
 ## First Working Slice
 
 [Fill out the questionnaire with preferences. Be able to save an option you like. ]
