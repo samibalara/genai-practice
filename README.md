@@ -48,7 +48,6 @@ I prioritized the issues that broke the core task first: matching that ignored u
 
 ## Evaluate the Revised Prototype
 
-Five test cases for the revised prototype. Before each test I wrote what a successful response should look like. Results below marked "Predicted" are my expectations for the revised app, not recorded test results. I will replace them with what actually happens when I run each case.
 
 | Case | Input or action | Expected result / success criterion | Actual result | Pass, partial, or fail | Implication or next step |
 | --- | --- | --- | --- | --- | --- |
@@ -60,13 +59,13 @@ Five test cases for the revised prototype. Before each test I wrote what a succe
 
 ### What Does the Evidence Tell Me?
 
-These results are predictions until I run each case on the revised app, and five tests are early evidence, not proof that Gatherwell is ready for real users. Based on the revisions, the part I expect to work reasonably well now is the core promise: treating Must Haves as hard filters should finally make results change with the user's answers, so a Baptist-only search returns only Baptist churches instead of the same generic list. What remains unreliable is how the app handles edge cases and missing information. Conflicting Must Haves may produce a dead end without explaining why, an empty questionnaire may still show match percentages that mean nothing, and the AI may fill gaps in church data with guesses, like assuming a Spanish-language service, which is the riskiest failure because it could send someone to a church that does not fit them. Images, the shorter form, and the "Why this matched" explanations are also still untested. If the filtering tests pass, the results would support part of the value I claim: a newcomer can trust that their non-negotiables are respected. They would not yet support the claim that the AI finds a good cultural or community fit, since none of these tests measure match quality. Next, I would run these five cases for real, fix the risk case so the app only shows details that are in the church data, add a clearer message for conflicting Must Haves, and ask a few people who are actually church hunting to try it and tell me whether their top matches felt right.
+Based on the revisions, the part I expect to work reasonably well now is the core promise: treating Must Haves as hard filters should finally make results change with the user's answers, so a Baptist-only search returns only Baptist churches instead of the same generic list. What remains unreliable is how the app handles edge cases and missing information. Conflicting Must Haves may produce a dead end without explaining why, an empty questionnaire may still show match percentages that mean nothing, and the AI may fill gaps in church data with guesses, like assuming a Spanish-language service, which is the riskiest failure because it could send someone to a church that does not fit them. Images, the shorter form, and the "Why this matched" explanations are also still untested. If the filtering tests pass, the results would support part of the value I claim: a newcomer can trust that their non-negotiables are respected. They would not yet support the claim that the AI finds a good cultural or community fit, since none of these tests measure match quality. Next, I would run these five cases for real, fix the risk case so the app only shows details that are in the church data, add a clearer message for conflicting Must Haves, and ask a few people who are actually church hunting to try it and tell me whether their top matches felt right. It's still not working exactly how I would like to, but I am seeing improvements ! 
 
 ## Address One Concrete Risk
 
 **Risk chosen:** the AI presenting guessed church details as facts.
 
-**Status:** In progress. This safeguard is being built in the revised prototype and is not yet confirmed working. The Risk test case above will check it.
+**Status:** This safeguard is being built in the revised prototype and is not yet confirmed working. The Risk test case above will check it.
 
 **What I am changing:**
 
@@ -84,7 +83,7 @@ The people most affected are newcomers who rely on the app because they don't kn
 
 - **Claude (Anthropic):** for planning revisions, turning peer feedback into fix lists, drafting prompts for Replit, and drafting and editing sections of this README. Claude also made the README edits in this repo through the Claude in Chrome extension, at my request.
 - **Replit Agent:** to write and change the app code.
-- **AI model inside the product:** [name the model/API the app calls for matching].
+- **AI model inside the product:** claude !.
 
 **Development assistance**
 
