@@ -111,3 +111,6 @@ I compared each AI-drafted section against the actual peer feedback and my origi
 - **Inputs:** the user's answers (denomination, worship style, distance, language, service time, plus optional extra questions) marked as Must Have, Nice to Have, or Doesn't Matter, along with the church data.
 - **Outputs:** a ranked list of churches with match percentages and a "Why this matched" explanation.
 - **Current status:** in the first prototype, the AI matching ran through an API, but it returned the same results regardless of user input. In the revision, Must Have answers are handled by rule-based filtering before the AI ranks the remaining churches. See "AI: Working vs. Simulated" for which parts are live AI and which are rule-based or sample data.
+
+**Demo Link**
+- https://drive.google.com/file/d/18rWAMzH8TNn_ZZT3qlZPshJX6E-pnMgH/view?usp=sharing 
